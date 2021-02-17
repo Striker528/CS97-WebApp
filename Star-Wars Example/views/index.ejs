@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Srambled Eggerts Web App</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+
+    <!-- 
+  <h1> May Node and Express be with you. </h1>
+    -->
+
+    <section data-position="add-quote">
+        <h2>Add quote</h2>
+  
+
+
+  <!--Browsers can only perform a CREATE operation if they send POST request to the server. 
+    This POST request can be triggered through JavaScript or through a <form> element.
+
+    Let’s figure out how to use a <form> element to create new entries for this Star Wars quote application for now. 
+        We’ll examine how to send requests via JavaScript later.
+
+    To send a POST request through a <form>, you need to add the <form> element to your index.html file.
+
+    You need three things on this form element:
+        1. An action attribute
+        2. A method attribute
+        3. name attributes on each <input> elements within the form. -->
+  <form action="/events" method="POST">
+    <input type="text" placeholder="Day" name="Day">
+    <input type="text" placeholder="Month" name="Month">
+    <input type="text" placeholder="Year" name="Year">
+    <input type="text" placeholder="Time" name="Time">
+    <input type="text" placeholder="Address" name="Address">
+    <input type="text" placeholder="Description" name="Description">
+    <button type="submit">Submit</button>
+  </form>
+  <!--The method tells browsers what kind of request to send. 
+        In this case, we use POST because we’re sending a POST request.
+
+    The action attribute tells the browser where to send the POST request. 
+        In this case, we’re send the POST request to /events. -->
+    </section>
+
+    <section data-position="update-quote">
+        <div>
+          <h2>Darth Vadar invades!</h2>
+          <p>
+            Replace first Yoda's quote with a quote written by Darth Vadar
+          </p>
+          <button id="update-button">Replace Yoda's quote</button>
+        </div>
+      </section>
+  
+      <section data-position="delete-quote">
+        <div>
+          <h2>Remove Darth Vadar!</h2>
+          <p>
+            Delete one Darth Vadar's quote. Does nothing if there are no more
+            Darth Vadar's quote
+          </p>
+          <button id="delete-button">Delete Darth Vadar's quote</button>
+        </div>
+        <div id="message"></div>
+      </section>
+  
+      <section data-position="events">
+        <h2>Events</h2>
+  
+
+        <ul class="events">
+          <!-- Loop through quotes -->
+          <% for(var i = 0; i < events.length; i++) {%>
+            <li class="event">
+              <!-- Output name from the iterated quote object -->
+              <span><%= events[i].Day %></span>:
+              <!-- Output quote from the iterated quote object -->
+              <span><%= eventss[i].Month %></span>
+              <!-- Output name from the iterated quote object -->
+              <span><%= events[i].Year %></span>:
+              <!-- Output quote from the iterated quote object -->
+              <span><%= eventss[i].Time %></span>
+              <!-- Output name from the iterated quote object -->
+              <span><%= events[i].Address %></span>:
+              <!-- Output quote from the iterated quote object -->
+              <span><%= eventss[i].Description %></span>
+            </li>
+          <% } %>
+        </ul>
+        </section>
+
+        <script src="/main.js"></script>
+</body>
+</html>
