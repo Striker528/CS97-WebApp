@@ -1,0 +1,99 @@
+1st started with git on 2/4/21
+
+https://www.youtube.com/watch?v=J_Clau1bYco&list=PLS6NVi0IpcffqWUihw1t5Kpv_xxGn2jXx&index=12&t=1s&ab_channel=ProgrammingKnowledge2
+
+-configure username and email
+git config --global user.name "Striker528"
+git config --global user.email austyn.j.adams@gmail.com
+
+For getting the files:
+git clone (url)
+git clone https://github.com/Striker528/CS97-WebApp.git
+
+For uploading a file:
+git add (fileName)  (-to add the file)
+git status (-to see the status)
+git commit -m "(what I want to commit) (fileName) : (add comments to the file I will be submitting)
+
+git pull origin head : setting the origin, the last word need to be the top of the branch, for me it is head
+
+git push -u origin head : last word needs to be the most recent, so in my case head
+
+
+
+
+formed removal of the .git file at the top
+
+rm -rf .git
+- can't undo
+
+***********do not have a git repository at the top
+
+git add --all
+
+git status
+
+git commit -am "Restarting from scrach"
+	-a for all
+	-m read the following message as commit message
+
+git remote -vv
+
+git push
+
+git pull
+
+
+
+----------------------
+rm -rf Star-Wars\ Example/
+
+git status
+	Changes not commited
+
+git add --all
+	Stages the changes I have made
+
+git status
+	Everything that is staged
+
+git commit -am "Some message"
+
+git push
+	to add it to the online repository
+
+---------------------------------------
+
+Starting, 
+
+git push
+
+
+	Get everyone to git pull, to download in their local repository
+
+When someone changes something, I need to do 
+	git pull
+	to update mine
+
+
+next.js
+node js
+express
+
+------------------------------------------
+code sandbox next.js
+
+next.js documentation
+
+
+https://www.google.com/url?sa=t&source=web&rct=j&url=https://codesandbox.io/s/rwk32q2w6q&ved=2ahUKEwjys7X4n_DuAhVm5nMBHaMjBqgQFjACegQIFhAB&usg=AOvVaw2Za3vTiCz7ISxuZ5uPqTF2&cshid=1613541934310
+
+
+
+pages/api/events.js
+
+
+
+
+
+
