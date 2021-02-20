@@ -12,7 +12,7 @@
     "react-dom": "latest",
     "react-router-dom": "^5.2.0",
     "react-scripts": "latest",
-    "react-table": "6.0.0",
+    "react-table": "^6.0.0",
     "styled-components": "^5.2.1",
     "web-vitals": "latest"
   },

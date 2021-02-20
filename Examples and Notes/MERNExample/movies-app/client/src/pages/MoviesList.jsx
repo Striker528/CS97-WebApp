@@ -1,10 +1,16 @@
 import React, { Component } from 'react'
+
 import ReactTable from 'react-table'
+//import ReactTable from "react-table-6";
+
 import api from '../api'
 
 import styled from 'styled-components'
 
-//import 'react-table/react-table.css'
+//https://www.google.com/search?q=import+%27react-table%2Freact-table.css%27&oq=import+%27react-table%2Freact-table.css%27&aqs=chrome..69i57.478j0j4&sourceid=chrome&ie=UTF-8
+//https://stackoverflow.com/questions/60956869/module-not-found-cant-resolve-react-table-react-table-css
+import 'react-table/react-table.css'
+//import "react-table-6/react-table.css"
 
 const Wrapper = styled.div`
     padding: 0 40px 40px 40px;
