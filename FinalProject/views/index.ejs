@@ -17,12 +17,12 @@
         <% for(var i = 0; i < events.length; i++) {%>
           <li class="event">
             <!-- Output name from the iterated quote object -->
-            <span><%= events[i].Name %></span>
-            <span><%= events[i].Host %></span>
-            <span><%= events[i].Date %></span>
-            <span><%= events[i].Time %></span>
-            <span><%= events[i].Where %></span>:
-            <span><%= events[i].Description %></span>
+            <span>Event: <%= events[i].Name %> </span> <br>
+            <span>Host:   <%= events[i].Host %></span> <br>
+            <span>Date:   <%= events[i].Date %></span> <br>
+            <span>Time:  <%= events[i].Time %></span> <br>
+            <span>Where:  <%= events[i].Where %></span> <br>
+            <span>Details:<%= events[i].Description %></span> <br> <br>
           </li>
         <% } %>
       </ul>
