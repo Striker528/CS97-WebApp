@@ -1,0 +1,3 @@
+[submodule "Examples and Notes/Searching-Example/fuzzy-search"]
+	path = Examples and Notes/Searching-Example/fuzzy-search
+	url = https://github.com/nax3t/fuzzy-search
