@@ -17,8 +17,8 @@ const uri =
 MongoClient.connect(uri, { useUnifiedTopology: true }) // removing the deprecation warning
   .then((client) => {
     console.log("connected to database");
-    const db = client.db("database1");
-    const eventsCollection = db.collection("events1");
+    const db = client.db("dataForWebAppDatabase");
+    const eventsCollection = db.collection("events");
 
     // tells express we are just ejs template engine
     app.set("view engines", "ejs");
@@ -32,29 +32,29 @@ MongoClient.connect(uri, { useUnifiedTopology: true }) // removing the deprecati
     app.use(bodyParser.json());
 
     // handle the put request
-    app.put("/events", (req, res) => {
-      eventsCollection
-        .findOneAndUpdate(
-          { name: "Yoda" },
-          {
-            $set: {
-              name: req.body.name,
-              quote: req.body.quote
-            }
-          },
+    //app.put("/events", (req, res) => {
+    //eventsCollection
+    //.findOneAndUpdate(
+    //{ name: "Yoda" },
+    //{
+    //$set: {
+    //name: req.body.name,
+    //quote: req.body.quote
+    //}
+    //},
 
-          {
-            upsert: true
-          }
-        )
+    //{
+    //upsert: true
+    //}
+    //)
 
-        .then((result) => {
-          // res.json('Sucess')
-          console.log(result);
-        })
+    //.then((result) => {
+    //// res.json('Sucess')
+    //console.log(result);
+    //})
 
-        .catch((error) => console.error(error));
-    });
+    //.catch((error) => console.error(error));
+    //});
 
     app.get("/", (req, res) => {
       // res.sendFile(__dirname + '/index.html')
@@ -77,47 +77,24 @@ MongoClient.connect(uri, { useUnifiedTopology: true }) // removing the deprecati
       // res.render('index.ejs', {})
     });
 
-    app.get("/", (req, res) => {
-      if (req.query.search) {
-        db.collection("events").find(
-          {
-            Day: req.query.search[0],
-            Month: req.query.search[1],
-            Year: req.query.search[2]
-          },
-          function (err, allEvents) {
-            res.render("events/index", { events: allEvents, noMatch: noMatch });
-          }
-        );
-      }
-    });
+    //search button is called search-events
+    //or it's action is called search-events
+    app.get("/search-events", (req, res) => {
+      eventsCollection.find({ Date: req.query.search }, function (
+        err,
+        results
+      ) {
+        if (err) {
+          res.render(err.message);
+        } else {
+          //res.redirect("/");
 
-    //router.get("/", function(req, res){
-    //var noMatch = null;
-    //if(req.query.search) {
-    //const regex = new RegExp(escapeRegex(req.query.search), 'gi');
-    //// Get all campgrounds from DB
-    //Campground.find({name: regex}, function(err, allCampgrounds){
-    //if(err){
-    //console.log(err);
-    //} else {
-    //if(allCampgrounds.length < 1) {
-    //noMatch = "No campgrounds match that query, please try again.";
-    //}
-    //res.render("campgrounds/index",{campgrounds:allCampgrounds, noMatch: noMatch});
-    //}
-    //});
-    //} else {
-    //// Get all campgrounds from DB
-    //Campground.find({}, function(err, allCampgrounds){
-    //if(err){
-    //console.log(err);
-    //} else {
-    //res.render("campgrounds/index",{campgrounds:allCampgrounds, noMatch: noMatch});
-    //}
-    //});
-    //}
-    //});
+          //res.render("the file to render too")
+          res.render("index.ejs", { events: results });
+          //res.send(searchedEvents);
+        }
+      });
+    });
 
     app.post("/events", (req, res) => {
       eventsCollection
