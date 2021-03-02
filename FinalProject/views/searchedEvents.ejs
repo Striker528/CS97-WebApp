@@ -8,7 +8,7 @@
   </head>
 
   <body>
-    <h1 data-position="header"> What's happening at UCLA??? </h1>
+    <h1 data-position="header"> Searched Events </h1>
 
     <section data-position="events">
       <h2>Events</h2>
@@ -26,28 +26,6 @@
           </li>
         <% } %>
       </ul>
-    </section>
-
-    <section data-position="add-event">
-      <h2>Add Event</h2>
-      <form action="/events" method="POST">
-        <input type="text" placeholder="Name" name="Name" />
-        <input type="text" placeholder="Host" name="Host" />
-        <input type="text" placeholder="MM/DD/YYYY" name="Date" />
-        <input type="text" placeholder="Time" name="Time" />
-        <input type="text" placeholder="Where" name="Where" />
-        <input type="text" placeholder="Description" name="Description" />
-        <button type="submit">Submit</button>
-      </form>
-    </section>
-
-
-    <section data-position="search-event">
-      <h2>Search Events</h2>
-      <form action="/search-events" method="POST">
-          <input type="text" placeholder="Search Event Name" name="Name" />
-          <button type="submit">Search Submit</button>
-      </form>
     </section>
 
 
