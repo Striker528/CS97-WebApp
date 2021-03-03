@@ -20,6 +20,10 @@
   "devDependencies": {
     "nodemon": "^2.0.7"
   },
+<<<<<<< HEAD
   "keywords": [],
   "description": ""
+=======
+  "keywords": []
+>>>>>>> ecf9a011e5a9d7dce3548d2cc06f1f3fd3bb6c4b
 }

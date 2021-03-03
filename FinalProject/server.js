@@ -11,10 +11,12 @@ const app = express();
 // urlendcoded tells bodyparser to extract data from the form element and put them in the body of the req object
 
 // connectrion string is uri
-const uri =
-  "mongodb+srv://yoda:greenguy@cluster0.qwmty.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+const url =
+  "mongodb+srv://Austyn:1234@cluster0.8jq7o.mongodb.net/dataForWebAppDatabase?retryWrites=true&w=majority";
 
-MongoClient.connect(uri, { useUnifiedTopology: true }) // removing the deprecation warning
+//"mongodb+srv://yoda:greenguy@cluster0.qwmty.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
+MongoClient.connect(url, { useUnifiedTopology: true }) // removing the deprecation warning
   .then((client) => {
     console.log("connected to database");
     const db = client.db("dataForWebAppDatabase");
@@ -30,31 +32,6 @@ MongoClient.connect(uri, { useUnifiedTopology: true }) // removing the deprecati
 
     // teach server to read json
     app.use(bodyParser.json());
-
-    // handle the put request
-    //app.put("/events", (req, res) => {
-    //eventsCollection
-    //.findOneAndUpdate(
-    //{ name: "Yoda" },
-    //{
-    //$set: {
-    //name: req.body.name,
-    //quote: req.body.quote
-    //}
-    //},
-
-    //{
-    //upsert: true
-    //}
-    //)
-
-    //.then((result) => {
-    //// res.json('Sucess')
-    //console.log(result);
-    //})
-
-    //.catch((error) => console.error(error));
-    //});
 
     app.get("/", (req, res) => {
       // res.sendFile(__dirname + '/index.html')
@@ -79,21 +56,29 @@ MongoClient.connect(uri, { useUnifiedTopology: true }) // removing the deprecati
 
     //search button is called search-events
     //or it's action is called search-events
-    app.get("/search-events", (req, res) => {
-      eventsCollection.find({ Date: req.query.search }, function (
-        err,
-        results
-      ) {
-        if (err) {
-          res.render(err.message);
-        } else {
-          //res.redirect("/");
 
-          //res.render("the file to render too")
+    //get request will never have anything in the request body
+
+    //url parameters = get request
+    //request body is different from request url
+    //2 kinds of requests
+    //get request : only url
+    //  pass in data only through url
+    //post requese : url and request body, body is known as payload
+    //   post in data in url and in body
+    app.post("/search-events", (req, res) => {
+      const regex = new RegExp(escapeRegex(req.body.Name), "gi");
+      //const regex = new RegExp(req.body, "gi");
+
+      db.collection("events")
+        .find({ Name: { $regex: regex } })
+        .toArray()
+        .then((results) => {
+          //console.log(results);
+          //console.log("YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY");
           res.render("index.ejs", { events: results });
-          //res.send(searchedEvents);
-        }
-      });
+        })
+        .catch((error) => console.error(error));
     });
 
     
@@ -113,3 +98,7 @@ MongoClient.connect(uri, { useUnifiedTopology: true }) // removing the deprecati
   })
 
   .catch(console.error);
+
+function escapeRegex(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+}
