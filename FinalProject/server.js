@@ -96,6 +96,8 @@ MongoClient.connect(uri, { useUnifiedTopology: true }) // removing the deprecati
       });
     });
 
+    
+
     app.post("/events", (req, res) => {
       eventsCollection
         .insertOne(req.body)

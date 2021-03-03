@@ -1,24 +1,25 @@
 {
   "name": "davids-working-web-app-file1",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "latest",
-    "ejs": "latest",
-    "express": "latest",
-    "mongodb": "latest",
-    "npm": "latest",
     "assert": "latest",
-    "locus": "latest"
+    "body-parser": "^1.19.0",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "locus": "latest",
+    "mongodb": "^3.6.4",
+    "npm": "latest"
   },
   "devDependencies": {
-    "nodemon": "latest"
+    "nodemon": "^2.0.7"
   },
-  "keywords": []
+  "keywords": [],
+  "description": ""
 }
