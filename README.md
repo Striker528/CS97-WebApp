@@ -4,13 +4,13 @@ Web App final for CS97
 How someone who cloned this can run our app
   - with inclused shell commands needed for setup
   
-In order to be able to run the webapp, we first 
+In order to be able to run the webapp, we will 
 1) need to have node installed 
-2) will be working in the command line 
+2) be working in the command line 
   
 First we need to clone the repository 
 ```
-  git clone https://github.com/Striker528/CS97-WebApp.git
+ git clone https://github.com/Striker528/CS97-WebApp.git
 ```
 The repository will be named CS97-WebApp and this holds everything we did with the webproject.
 The actual webapp is in a directory named FinalProject within the main repository.
@@ -19,7 +19,7 @@ We can navigate to the correct directory using
 ```
  cd CS97-WebApp/FinalProject/
 ```
-and we will be initializing and installing libraries into the correct directory. 
+and we will be initializing and installing libraries in this directory. 
 
 
 
