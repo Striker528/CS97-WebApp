@@ -18,8 +18,8 @@ body {
   grid-template-rows: auto auto 2fr;
   grid-template-areas:
     "header header"
-    "add-event search-event"
-    "events events";
+    "add-event events"
+    "search-event events";
   gap: 1rem;
   padding: 1rem;
   background-image: linear-gradient(#2774ae, #8bb8e8);
