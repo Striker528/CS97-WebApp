@@ -53,7 +53,7 @@
         <% for(var i = 0; i < events.length; i++) {%>
           <li class="event">
             <!-- Output name from the iterated quote object -->
-            <span><b><i class='fas fa-thumbtack'></i></b> <%= events[i].Name %> </span> <br>
+            <span><b><i class='fas fa-thumbtack'></i></b> <b><%= events[i].Name %> </b></span> <br>
             <span><b><i class='fas fa-user-circle'></i></b>   <%= events[i].Host %></span> <br>
             <span><b><i class='fas fa-calendar-alt'></i></b>   <%= events[i].Date %></span><br>
             <span><b><i class="fas fa-clock"></i></b>  <%= events[i].Time %></span> <br>
