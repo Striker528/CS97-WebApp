@@ -1,5 +1,5 @@
 // server.js
-console.log("May Node be with you");
+console.log("Server Starting Up");
 
 const express = require("express"); // import express library
 const bodyParser = require("body-parser"); // import body parser library
@@ -12,7 +12,9 @@ const app = express();
 
 // connectrion string is uri
 const url =
-  "mongodb+srv://Austyn:1234@cluster0.8jq7o.mongodb.net/dataForWebAppDatabase?retryWrites=true&w=majority";
+  "mongodb+srv://yoda:greenguy@cluster0.qwmty.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+
+//"mongodb+srv://Austyn:1234@cluster0.8jq7o.mongodb.net/dataForWebAppDatabase?retryWrites=true&w=majority";
 
 //"mongodb+srv://yoda:greenguy@cluster0.qwmty.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
@@ -50,8 +52,6 @@ MongoClient.connect(url, { useUnifiedTopology: true }) // removing the deprecati
           res.render("index.ejs", { events: results });
         })
         .catch((error) => console.error(error));
-
-      // res.render('index.ejs', {})
     });
 
     //search button is called search-events
@@ -68,8 +68,6 @@ MongoClient.connect(url, { useUnifiedTopology: true }) // removing the deprecati
     //   post in data in url and in body
     app.post("/search-events", (req, res) => {
       const regex = new RegExp(escapeRegex(req.body.Name), "gi");
-      //const regex = new RegExp(req.body, "gi");
-
       db.collection("events")
         .find({ Name: { $regex: regex } })
         .toArray()
@@ -80,8 +78,6 @@ MongoClient.connect(url, { useUnifiedTopology: true }) // removing the deprecati
         })
         .catch((error) => console.error(error));
     });
-
-    
 
     app.post("/events", (req, res) => {
       eventsCollection
@@ -96,9 +92,7 @@ MongoClient.connect(url, { useUnifiedTopology: true }) // removing the deprecati
       console.log("listening on 3000");
     });
   })
-
   .catch(console.error);
-
 function escapeRegex(text) {
   return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
 }
