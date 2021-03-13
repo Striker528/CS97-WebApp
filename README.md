@@ -1,10 +1,11 @@
 # CS97-WebApp
 Web App final for CS97
 
-Description of App
+**Description of App**
+
 Our web application would ideally be a site where students could both find events happening on campus as well post new events to share with other students. Hopefully students would be able to go on on the website and find new things to do things to do around campus.
 
-App Features
+**App Features**
 Our app features a list of current events, a section to add events, and a search bar. Firstly, we have a section on the right hand side of the page that displays all the current events in a list format. Then we have a section in the upper right side where users can input new events with details such as the name, date, time, etc. Then in the bottom right side we have a section where we can search for an event by name and then the event(s) with that name will be displayed under the Events section.
 
 How someone who cloned this can run our app
